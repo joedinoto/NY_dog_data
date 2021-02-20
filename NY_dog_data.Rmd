@@ -1,0 +1,53 @@
+---
+title: "NYC Dog Licsense Data"
+author: "Joe DiNoto"
+date: "2/20/2021"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r error=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r cache=TRUE}
+dogs <- read.csv("NYC_Dog_Licensing_Dataset.csv")
+```
+
+Get a feel for the data set
+```{r}
+glimpse(dogs)
+```
+
+Most pouplar breed?
+
+```{r}
+dogs %>%
+  count(BreedName, sort=TRUE) %>%
+  head()
+```
+
+Longest animal names?
+```{r}
+long_names <- dogs %>%
+  mutate(name_length = nchar(AnimalName)) %>%
+  filter(name_length>20) %>%
+  select(AnimalName, name_length)
+long_names
+```
+
+```{r}
+dogs %>%
+  mutate(name_length=nchar(AnimalName))%>%
+  ggplot(aes(x=name_length))+
+  geom_histogram()+
+  scale_y_log10()
+```
+
