@@ -56,3 +56,31 @@ long_names %>%
   filter(name_length>29)
 ```
 
+Most common names?
+
+```{r}
+dogs %>%
+  count(AnimalName,sort=TRUE) %>%
+  filter(n>1500) %>%
+  filter(AnimalName != "UNKNOWN") %>%
+  filter(AnimalName != "NAME NOT PROVIDED")
+```
+
+Are there any dogs named "CAT"?
+```{r}
+dogs %>%
+  select(AnimalName,AnimalGender, AnimalBirthMonth,BreedName) %>%
+  filter(AnimalName=="CAT")
+```
+Are there any dogs named "KITTY"?
+```{r}
+dogs %>%
+  select(AnimalName,AnimalGender, AnimalBirthMonth,BreedName) %>%
+  filter(AnimalName=="KITTY")
+```
+```{r}
+dogs %>%
+  select(AnimalName,AnimalGender, AnimalBirthMonth,BreedName) %>%
+  filter(AnimalName=="KITTEN")
+```
+

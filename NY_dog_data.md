@@ -152,3 +152,185 @@ long_names %>%
 ## 9 BUDEREAUXBUDERONIMUSBUDEROWSKI          30
 ```
 
+Most common names?
+
+
+```r
+dogs %>%
+  count(AnimalName,sort=TRUE) %>%
+  filter(n>1500) %>%
+  filter(AnimalName != "UNKNOWN") %>%
+  filter(AnimalName != "NAME NOT PROVIDED")
+```
+
+```
+##    AnimalName    n
+## 1       BELLA 3824
+## 2         MAX 3582
+## 3     CHARLIE 2852
+## 4        COCO 2636
+## 5        LOLA 2470
+## 6       ROCKY 2414
+## 7        LUCY 2149
+## 8       BUDDY 2011
+## 9        LUNA 1974
+## 10      LUCKY 1950
+## 11      DAISY 1890
+## 12      TEDDY 1720
+## 13     BAILEY 1705
+## 14   PRINCESS 1640
+## 15       TOBY 1509
+```
+
+Are there any dogs named "CAT"?
+
+```r
+dogs %>%
+  select(AnimalName,AnimalGender, AnimalBirthMonth,BreedName) %>%
+  filter(AnimalName=="CAT")
+```
+
+```
+##    AnimalName AnimalGender AnimalBirthMonth                     BreedName
+## 1         CAT            F             2015 Labrador Retriever Crossbreed
+## 2         CAT            F             2011                       Unknown
+## 3         CAT            F             2014                     Chihuahua
+## 4         CAT            F             2011                       Unknown
+## 5         CAT            F             2011                       Unknown
+## 6         CAT            F             2017                French Bulldog
+## 7         CAT            F             2014                     Chihuahua
+## 8         CAT            F             2011                       Unknown
+## 9         CAT            F             2011                       Unknown
+## 10        CAT            F             2017                French Bulldog
+## 11        CAT            F             2015                     Chihuahua
+## 12        CAT            F             2014                     Chihuahua
+## 13        CAT            F             2011                       Unknown
+```
+Are there any dogs named "KITTY"?
+
+```r
+dogs %>%
+  select(AnimalName,AnimalGender, AnimalBirthMonth,BreedName) %>%
+  filter(AnimalName=="KITTY")
+```
+
+```
+##    AnimalName AnimalGender AnimalBirthMonth
+## 1       KITTY            F             2003
+## 2       KITTY            F             2006
+## 3       KITTY            M             2003
+## 4       KITTY            F             2010
+## 5       KITTY            F             2015
+## 6       KITTY            F             2005
+## 7       KITTY            F             2014
+## 8       KITTY            F             2014
+## 9       KITTY            F             2012
+## 10      KITTY            F             2009
+## 11      KITTY            F             2010
+## 12      KITTY            F             2012
+## 13      KITTY            F             2010
+## 14      KITTY            F             2010
+## 15      KITTY            F             2005
+## 16      KITTY            F             2015
+## 17      KITTY            F             2004
+## 18      KITTY            F             2010
+## 19      KITTY            F             2012
+## 20      KITTY            F             2004
+## 21      KITTY            F             2014
+## 22      KITTY            F             2014
+## 23      KITTY            F             2010
+## 24      KITTY            F             2005
+## 25      KITTY            F             2015
+## 26      KITTY            F             2012
+## 27      KITTY            F             2009
+## 28      KITTY            F             2010
+## 29      KITTY            F             2005
+## 30      KITTY            F             2010
+## 31      KITTY            F             2012
+## 32      KITTY            F             2012
+## 33      KITTY            F             2004
+## 34      KITTY            F             2010
+## 35      KITTY            F             2004
+## 36      KITTY            F             2014
+## 37      KITTY            F             2015
+## 38      KITTY            F             2009
+## 39      KITTY            F             2010
+## 40      KITTY            F             2005
+## 41      KITTY            F             2004
+## 42      KITTY            F             2014
+## 43      KITTY            F             2005
+## 44      KITTY            F             2010
+## 45      KITTY            F             2012
+## 46      KITTY            F             2014
+## 47      KITTY            F             2012
+## 48      KITTY            F             2010
+## 49      KITTY            F             2011
+## 50      KITTY            F             2004
+## 51      KITTY            M             2018
+## 52      KITTY            F             2010
+##                               BreedName
+## 1                               Maltese
+## 2                             Pekingese
+## 3                  Chihuahua Crossbreed
+## 4  American Pit Bull Mix / Pit Bull Mix
+## 5               Black and Tan Coonhound
+## 6           Pointer, German Shorthaired
+## 7                             Chihuahua
+## 8                         Border Collie
+## 9                           Terrier mix
+## 10                        Cairn Terrier
+## 11                     Poodle, Standard
+## 12                             Shih Tzu
+## 13                               Poodle
+## 14                            Chihuahua
+## 15                              Maltese
+## 16                        Border Collie
+## 17                             Havanese
+## 18           German Shepherd Crossbreed
+## 19                            Chihuahua
+## 20                                  Pug
+## 21                            Chihuahua
+## 22                        Border Collie
+## 23                               Poodle
+## 24                              Maltese
+## 25                        Border Collie
+## 26                            Chihuahua
+## 27                        Cairn Terrier
+## 28                     Poodle, Standard
+## 29          Pointer, German Shorthaired
+## 30                            Chihuahua
+## 31                             Shih Tzu
+## 32                          Terrier mix
+## 33                             Havanese
+## 34           German Shepherd Crossbreed
+## 35                                  Pug
+## 36                            Chihuahua
+## 37                        Border Collie
+## 38                        Cairn Terrier
+## 39                     Poodle, Standard
+## 40          Pointer, German Shorthaired
+## 41                                  Pug
+## 42                        Border Collie
+## 43                              Maltese
+## 44                  Miniature Schnauzer
+## 45                          Terrier mix
+## 46                            Chihuahua
+## 47                             Shih Tzu
+## 48                            Chihuahua
+## 49                                  Pug
+## 50                             Havanese
+## 51            Siberian Husky Crossbreed
+## 52           German Shepherd Crossbreed
+```
+
+```r
+dogs %>%
+  select(AnimalName,AnimalGender, AnimalBirthMonth,BreedName) %>%
+  filter(AnimalName=="KITTEN")
+```
+
+```
+##   AnimalName AnimalGender AnimalBirthMonth BreedName
+## 1     KITTEN            M             2012   Unknown
+```
+
