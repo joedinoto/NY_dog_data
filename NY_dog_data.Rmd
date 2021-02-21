@@ -51,3 +51,8 @@ dogs %>%
   scale_y_log10()
 ```
 
+```{r}
+long_names %>%
+  filter(name_length>29)
+```
+

@@ -133,3 +133,22 @@ dogs %>%
 
 ![](NY_dog_data_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
+
+```r
+long_names %>%
+  filter(name_length>29)
+```
+
+```
+##                       AnimalName name_length
+## 1 CARLYAPPLEWHITECRAWFORDCOLEMAN          30
+## 2 SAMSONMAXWELLWALTERZANE(SAMMY)          30
+## 3 JEFFERSONBARNARDRAMSEYDONNELLY          30
+## 4 PIPLONGFELLOWBUTTERFIELDFROUDE          30
+## 5 JEFFERSONBARNARDRAMSEYDONNELLY          30
+## 6 PIPLONGFELLOWBUTTERFIELDFROUDE          30
+## 7 BUDEREAUXBUDERONIMUSBUDEROWSKI          30
+## 8 PIPLONGFELLOWBUTTERFIELDFROUDE          30
+## 9 BUDEREAUXBUDERONIMUSBUDEROWSKI          30
+```
+
