@@ -334,3 +334,41 @@ dogs %>%
 ## 1     KITTEN            M             2012   Unknown
 ```
 
+
+```r
+dogs %>%
+  mutate(name_length=nchar(AnimalName))%>%
+  filter(name_length==1) %>%
+  count(AnimalName,sort=FALSE)
+```
+
+```
+##    AnimalName  n
+## 1           - 23
+## 2           2  3
+## 3           A 10
+## 4           B  8
+## 5           C  8
+## 6           D  9
+## 7           E  5
+## 8           F  5
+## 9           G  6
+## 10          H  2
+## 11          I  2
+## 12          J 23
+## 13          K  7
+## 14          L  4
+## 15          M  8
+## 16          N 20
+## 17          O  5
+## 18          P  3
+## 19          Q 30
+## 20          R  3
+## 21          T  7
+## 22          U 10
+## 23          V  1
+## 24          W  4
+## 25          X  3
+## 26          Y  3
+```
+

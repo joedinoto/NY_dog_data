@@ -84,3 +84,10 @@ dogs %>%
   filter(AnimalName=="KITTEN")
 ```
 
+```{r}
+dogs %>%
+  mutate(name_length=nchar(AnimalName))%>%
+  filter(name_length==1) %>%
+  count(AnimalName,sort=FALSE)
+```
+
